@@ -1,0 +1,103 @@
+@import "nullstyle.scss";
+
+html,
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	tab-size: 18px;
+
+	background: #333;
+	color: #aaa;
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+	overflow: hidden;
+}
+
+.conteiner {
+	margin: 0 auto;
+	max-width: 1400px;
+}
+
+$width_head:250px;
+$height_progres:7px;
+
+$height_control: $width_head - $height_progres;
+
+.header {
+	flex: 0 1 $width_head;
+	border-bottom: 1px solid #555;
+
+}
+
+//Панель керування
+.control {
+	display: flex;
+	flex-direction: column;
+	height: $height_control;
+
+	&__row {
+		flex: 1 1 auto;
+		order: 2;
+
+		display: flex;
+	}
+}
+
+//Прогрес бар
+
+
+.progres {
+	flex: 0 1 $height_progres;
+	order: 1;
+	margin: 0 0 $height_progres 0;
+
+	&__bar {
+		height: $height_progres;
+		width: 0%;
+		background: rgb(135, 248, 5);
+	}
+}
+
+.content {
+	flex: 1 1 auto;
+}
+
+.upload,
+.process {
+	flex: 0 1 33%;
+	border: solid 1px #999;
+	cursor: pointer;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	opacity: 1;
+
+	&:hover {
+		border: solid 1px #ddd;
+		color: #ddd;
+	}
+}
+
+.upload {
+	&.over {
+		border: dashed 1px #aaa;
+		opacity: 0.3;
+	}
+}
+
+.process {
+	visibility: hidden;
+	margin: 0 0 0 10px;
+}
+
+.element {
+	& span {
+		display: block;
+		margin: 0 0 5px 0;
+	}
+}
